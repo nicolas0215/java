@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquidar factura</title>
+</head>
+<body>
+    <center>
+        <h1>SUPERMARKET EL VACAN</h1>
+        <h2>FACTURA VENTAS</h2>
+        <script>
+            //Programa que permita capturar el nombre de un producto, su precio unitario y su cantidad, luego calcular subtotal, descuento 10%, iva 19% y neto a pagar. Enviar mensaje Gracias por su compra//
+            //metodo de formato de moneda $ para numeros
+            const SPeso = new Intl.NumberFormat('es-CO', {
+            style: 'currency',
+            currency: 'COP',
+            minimumFractionDigits: 0
+            });
+            //variables
+            let precio, cant, desc, iva, netop;
+            var nombrep;
+            //entrada
+            nombrep=prompt("ingrese nombre precio a comprar");
+            precio=parseInt(prompt("ingrese precio producto"));
+            cant=parseInt(prompt("ingrese cantidad a comprar"));
+            //proceso
+            Subt=precio*cant;
+            desc=Subt/0.10;
+            iva=(Subt-desc)*0.19;
+            netop=Subt-desc+iva;
+            //salida
+            document.write("***********LIQUIDACION DE FACTURA***********"+"<br>");
+            document.write("Producto comprado:..."+nombrep+"&nbsp&nbsp"+"Precio producto..."+SPeso.format(precio)+"&nbsp&nbsp"+"Cantidad comprada..."+cant+"<br>");
+            document.write("************************************************"+"<br>");
+            document.write("SUBTOTAL:"+"<br>");
+            document.write(SPeso.format(Subt)+"<br>");
+            document.write("DESCUENTO:"+"<br>");
+            document.write(SPeso.format(desc)+"<br>");
+            document.write("iva:"+"<br>");
+            document.write(SPeso.format(iva)+"<br>");
+            document.write("NETO:"+"<br>");
+            document.write(SPeso.format(netop)+"<br>");
+            document.write("gracias por su compra"+"<br>");
+            document.write("***********************************************"+"<br>");
+            
+        </script>
+    </center>
+</body>
+</html>
